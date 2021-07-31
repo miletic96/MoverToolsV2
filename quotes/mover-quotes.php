@@ -33,6 +33,7 @@ function movers_free_quote_page()
             'send_bitton_text' => $_POST['send_bitton_text'],
             'form_border_radius' => $_POST['form_border_radius'],
             'button_border_radius' => $_POST['button_border_radius'],
+            'loadbootstrap' => (isset($_POST['loadbootstrap'])? '1' : '0'),
         );
         update_option('movers_quote_options', $post_data);
         //$wpdb->update($table_name,$post_data, array( "id" => 1 ));
@@ -60,6 +61,7 @@ function movers_free_quote_page()
             'send_bitton_text' => '',
             'form_border_radius' => '',
             'button_border_radius' => '',
+            'loadbootstrap' => (isset($_POST['loadbootstrap']) ? '1' : '0'),
         );
     }
 
