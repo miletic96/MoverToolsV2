@@ -152,7 +152,6 @@ class FormValidator {
     // Define what happens on successful data submission
     XHR.addEventListener("load", function (event) {   
       console.log(...data);
-      alert("Bravo");   
       window.location.replace(redirectUrl);
     });
 
@@ -169,8 +168,9 @@ class FormValidator {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#free-quote-form");
+
+function myInitCode() {
+	 const form = document.querySelector("#free-quote-form");
   const fields = [
     "first_name",
     "last_name",
@@ -181,7 +181,7 @@ window.addEventListener("DOMContentLoaded", () => {
     "email",
     "move_size_id",
   ];
-
+console.log("Santa Monica Movers");
   document.getElementById("phone").addEventListener("input", function (e) {
     var x = e.target.value
       .replace(/\D/g, "")
@@ -193,4 +193,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const validator = new FormValidator(form, fields);
   validator.initialize();
-});
+}
+if( document.readyState !== 'loading' ) {
+    console.log( 'document is already ready, just execute code here' );
+    myInitCode();
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log( 'document was not ready, place code here' );
+        myInitCode();
+    });
+}
