@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Mover Tools
  * Description: Forms and other website tools for moving sites.
- * Version: 2.0.0
+ * Version: 2.0.5
  * Author: Milan Miletic
  * License:           GNU General Public License v2
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
