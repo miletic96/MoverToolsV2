@@ -67,7 +67,15 @@ function movers_free_quote_page()
 
     include 'movers-admin-panel.php';
 }
-
+/** Load JS **/
+function load_scripts()
+{   wp_enqueue_script('mover-quotes', plugins_url('assets/js/mover-quotes.js', __FILE__));
+    $form_options = get_option('movers_quote_options');
+    if ($form_options['form_preset2'] == 4 | $form_options['form_preset'] == 4 ) {
+        wp_enqueue_script('steps', plugins_url('assets/js/steps.js', __FILE__));
+    }
+    
+}
 
 
 function generate_free_quote_form()
@@ -115,6 +123,7 @@ function generate_free_quote_form()
     }
 
     $content = ob_get_clean(); // get the buffer contents and clean it
+    load_scripts();
     return $content;
 }
 
@@ -167,6 +176,7 @@ function generate_free_quote_form2()
     }
 
     $content = ob_get_clean(); // get the buffer contents and clean it
+    load_scripts();
     return $content;
 }
 
@@ -187,17 +197,4 @@ function load_plugin_css()
 //     wp_enqueue_style('bootstrap-selectpicker', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css');
 }
 add_action('wp_enqueue_scripts', 'load_plugin_css');
-
-
-
-/** Load JS **/
-function load_scripts()
-{   wp_enqueue_script('mover-quotes', plugins_url('assets/js/mover-quotes.js', __FILE__));
-    $form_options = get_option('movers_quote_options');
-    if ($form_options['form_preset2'] == 4 | $form_options['form_preset'] == 4 ) {
-        wp_enqueue_script('steps', plugins_url('assets/js/steps.js', __FILE__));
-    }
-    
-}
-add_action('wp_enqueue_scripts', 'load_scripts');
 
